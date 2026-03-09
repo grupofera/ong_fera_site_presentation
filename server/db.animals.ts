@@ -53,7 +53,7 @@ export async function getAnimals(limit = 50, offset = 0) {
     throw new Error(`Failed to fetch animals: ${error.message}`);
   }
 
-  return { animals: data as Animal[], total: count || 0 };
+  return { animals: (data || []).map(animal => ({ ...animal, projeto: animal.projeto || null })) as Animal[], total: count || 0 };
 }
 
 // Get single animal by ID
@@ -70,7 +70,7 @@ export async function getAnimalById(id: string) {
     throw new Error(`Failed to fetch animal: ${error.message}`);
   }
 
-  return data as Animal;
+  return { ...data, projeto: data?.projeto || null } as Animal;
 }
 
 // Create new animal
@@ -158,7 +158,7 @@ export async function searchAnimals(query: string) {
     throw new Error(`Failed to search animals: ${error.message}`);
   }
 
-  return data as Animal[];
+  return (data || []).map(animal => ({ ...animal, projeto: animal.projeto || null })) as Animal[];
 }
 
 // Get animals by status
@@ -175,7 +175,7 @@ export async function getAnimalsByStatus(status: string) {
     throw new Error(`Failed to fetch animals: ${error.message}`);
   }
 
-  return data as Animal[];
+  return (data || []).map(animal => ({ ...animal, projeto: animal.projeto || null })) as Animal[];
 }
 
 // Get animals by project
@@ -200,7 +200,7 @@ export async function getAnimalsByProject(projeto: string | null, limit = 50, of
     throw new Error(`Failed to fetch animals: ${error.message}`);
   }
 
-  return { animals: data as Animal[], total: count || 0 };
+  return { animals: (data || []).map(animal => ({ ...animal, projeto: animal.projeto || null })) as Animal[], total: count || 0 };
 }
 
 // Search animals by project
@@ -226,5 +226,5 @@ export async function searchAnimalsByProject(query: string, projeto: string | nu
     throw new Error(`Failed to search animals: ${error.message}`);
   }
 
-  return data as Animal[];
+  return (data || []).map(animal => ({ ...animal, projeto: animal.projeto || null })) as Animal[];
 }
