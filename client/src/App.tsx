@@ -11,6 +11,7 @@ import Animais from "./pages/Animais";
 import Dashboard from "./pages/Dashboard";
 import Adocoes from "./pages/Adocoes";
 import Doacoes from "./pages/Doacoes";
+import Voluntarios from "./pages/Voluntarios";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -21,6 +22,7 @@ function Router() {
       <Route path={"/animais"} component={Animais} />
       <Route path={"/adocoes"} component={Adocoes} />
       <Route path={"/doacoes"} component={Doacoes} />
+      <Route path={"/voluntarios"} component={Voluntarios} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
