@@ -9,6 +9,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Animais from "./pages/Animais";
 import Dashboard from "./pages/Dashboard";
+import Adocoes from "./pages/Adocoes";
+import Doacoes from "./pages/Doacoes";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -17,6 +19,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/dashboard"} component={Dashboard} />
       <Route path={"/animais"} component={Animais} />
+      <Route path={"/adocoes"} component={Adocoes} />
+      <Route path={"/doacoes"} component={Doacoes} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
