@@ -11,10 +11,10 @@
 - [x] Implementar página Home/Dashboard
 - [x] Criar listagem de animais com tabela
 - [x] Implementar busca e filtros de animais
-- [ ] Criar formulário de criação de animal
-- [ ] Criar formulário de edição de animal
+- [x] Criar formulário de criação de animal
+- [x] Criar formulário de edição de animal
 - [x] Implementar exclusão de animal (soft delete)
-- [ ] Adicionar upload de fotos de animais
+- [x] Adicionar upload de fotos de animais (preview no formulário)
 - [x] Criar tRPC procedures para CRUD de animais
 - [x] Integrar Supabase com tRPC procedures
 
