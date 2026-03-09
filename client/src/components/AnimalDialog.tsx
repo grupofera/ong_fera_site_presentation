@@ -12,6 +12,7 @@ interface AnimalDialogProps {
   onOpenChange: (open: boolean) => void;
   initialData?: any;
   onSuccess?: () => void;
+  defaultProjeto?: string | null;
 }
 
 export function AnimalDialog({
@@ -19,6 +20,7 @@ export function AnimalDialog({
   onOpenChange,
   initialData,
   onSuccess,
+  defaultProjeto,
 }: AnimalDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -35,6 +37,7 @@ export function AnimalDialog({
         </DialogHeader>
         <AnimalForm
           initialData={initialData}
+          defaultProjeto={defaultProjeto}
           onSuccess={() => {
             onOpenChange(false);
             onSuccess?.();

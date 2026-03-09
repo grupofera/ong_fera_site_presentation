@@ -17,6 +17,7 @@ export interface Animal {
   status: string;
   descricao: string | null;
   foto_url: string | null;
+  projeto: string | null; // null = ONG FERA, "Animais Iluminados" = projeto especial
   created_at: string;
   updated_at: string;
 }
@@ -31,6 +32,7 @@ export interface CreateAnimalInput {
   status?: string;
   descricao?: string;
   foto_url?: string;
+  projeto?: string | null; // null = ONG FERA, "Animais Iluminados" = projeto especial
 }
 
 export interface UpdateAnimalInput extends Partial<CreateAnimalInput> {
@@ -86,6 +88,7 @@ export async function createAnimal(input: CreateAnimalInput) {
         status: input.status || "Animal Doméstico",
         descricao: input.descricao || null,
         foto_url: input.foto_url || null,
+        projeto: input.projeto || null,
       },
     ])
     .select()
@@ -170,6 +173,57 @@ export async function getAnimalsByStatus(status: string) {
   if (error) {
     console.error("[DB] Error fetching animals by status:", error);
     throw new Error(`Failed to fetch animals: ${error.message}`);
+  }
+
+  return data as Animal[];
+}
+
+// Get animals by project
+export async function getAnimalsByProject(projeto: string | null, limit = 50, offset = 0) {
+  const query = supabase
+    .from("animais")
+    .select("*", { count: "exact" })
+    .is("deleted_at", null);
+
+  if (projeto === null) {
+    query.is("projeto", null);
+  } else {
+    query.eq("projeto", projeto);
+  }
+
+  const { data, error, count } = await query
+    .order("created_at", { ascending: false })
+    .range(offset, offset + limit - 1);
+
+  if (error) {
+    console.error("[DB] Error fetching animals by project:", error);
+    throw new Error(`Failed to fetch animals: ${error.message}`);
+  }
+
+  return { animals: data as Animal[], total: count || 0 };
+}
+
+// Search animals by project
+export async function searchAnimalsByProject(query: string, projeto: string | null) {
+  const baseQuery = supabase
+    .from("animais")
+    .select("*")
+    .is("deleted_at", null)
+    .or(`nome.ilike.%${query}%,especie.ilike.%${query}%,raca.ilike.%${query}%`);
+
+  if (projeto === null) {
+    baseQuery.is("projeto", null);
+  } else {
+    baseQuery.eq("projeto", projeto);
+  }
+
+  const { data, error } = await baseQuery
+    .order("created_at", { ascending: false })
+    .limit(50);
+
+  if (error) {
+    console.error("[DB] Error searching animals by project:", error);
+    throw new Error(`Failed to search animals: ${error.message}`);
   }
 
   return data as Animal[];

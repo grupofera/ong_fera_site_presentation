@@ -36,6 +36,7 @@ const animalFormSchema = z.object({
   status: z.string().min(1, "Status é obrigatório"),
   descricao: z.string().optional(),
   data_nascimento: z.string().optional(),
+  projeto: z.string().nullable().optional(),
 });
 
 export type AnimalFormValues = z.infer<typeof animalFormSchema>;
@@ -44,9 +45,10 @@ interface AnimalFormProps {
   initialData?: any;
   onSuccess?: () => void;
   isLoading?: boolean;
+  defaultProjeto?: string | null;
 }
 
-export function AnimalForm({ initialData, onSuccess, isLoading }: AnimalFormProps) {
+export function AnimalForm({ initialData, onSuccess, isLoading, defaultProjeto }: AnimalFormProps) {
   const [photoPreview, setPhotoPreview] = useState<string | null>(
     initialData?.foto_url || null
   );
@@ -63,6 +65,7 @@ export function AnimalForm({ initialData, onSuccess, isLoading }: AnimalFormProp
       status: "Animal Doméstico",
       descricao: "",
       data_nascimento: "",
+      projeto: defaultProjeto || null,
     },
   });
 
@@ -156,6 +159,36 @@ export function AnimalForm({ initialData, onSuccess, isLoading }: AnimalFormProp
             Máximo 5MB. Formatos: JPG, PNG, GIF
           </FormDescription>
         </div>
+
+        {/* Project Selection */}
+        <FormField
+          control={form.control}
+          name="projeto"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Projeto</FormLabel>
+              <Select
+                onValueChange={(value) => field.onChange(value === "null" ? null : value)}
+                defaultValue={field.value === null ? "null" : field.value || "null"}
+                disabled={isSubmitting}
+              >
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecione o projeto" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="null">ONG FERA</SelectItem>
+                  <SelectItem value="Animais Iluminados">🌟 Animais Iluminados</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormDescription>
+                Selecione o projeto ao qual este animal pertence
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         {/* Basic Information */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

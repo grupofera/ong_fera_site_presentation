@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Animais from "./pages/Animais";
+import AnimaisIluminados from "./pages/AnimaisIluminados";
 import Dashboard from "./pages/Dashboard";
 import Adocoes from "./pages/Adocoes";
 import Doacoes from "./pages/Doacoes";
@@ -20,6 +21,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/dashboard"} component={Dashboard} />
       <Route path={"/animais"} component={Animais} />
+      <Route path={"/animais-iluminados"} component={AnimaisIluminados} />
       <Route path={"/adocoes"} component={Adocoes} />
       <Route path={"/doacoes"} component={Doacoes} />
       <Route path={"/voluntarios"} component={Voluntarios} />

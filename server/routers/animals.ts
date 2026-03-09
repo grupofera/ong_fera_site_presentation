@@ -8,18 +8,25 @@ import {
   deleteAnimal,
   searchAnimals,
   getAnimalsByStatus,
+  getAnimalsByProject,
+  searchAnimalsByProject,
 } from "../db.animals";
 
 export const animalsRouter = router({
-  // Get all animals with pagination
+  // Get all animals with pagination (optionally filtered by project)
   list: publicProcedure
     .input(
       z.object({
         limit: z.number().min(1).max(100).default(50),
         offset: z.number().min(0).default(0),
+        projeto: z.string().nullable().optional(),
       })
     )
     .query(async ({ input }) => {
+      // If projeto is specified, use the filtered query
+      if (input.projeto !== undefined) {
+        return getAnimalsByProject(input.projeto, input.limit, input.offset);
+      }
       return getAnimals(input.limit, input.offset);
     }),
 
@@ -43,6 +50,7 @@ export const animalsRouter = router({
         status: z.string().optional(),
         descricao: z.string().optional(),
         foto_url: z.string().optional(),
+        projeto: z.string().nullable().optional(),
       })
     )
     .mutation(async ({ input }) => {
@@ -63,6 +71,7 @@ export const animalsRouter = router({
         status: z.string().optional(),
         descricao: z.string().optional(),
         foto_url: z.string().optional(),
+        projeto: z.string().nullable().optional(),
       })
     )
     .mutation(async ({ input }) => {
@@ -76,10 +85,14 @@ export const animalsRouter = router({
       return deleteAnimal(input.id);
     }),
 
-  // Search animals
+  // Search animals (optionally filtered by project)
   search: publicProcedure
-    .input(z.object({ query: z.string().min(1) }))
+    .input(z.object({ query: z.string().min(1), projeto: z.string().nullable().optional() }))
     .query(async ({ input }) => {
+      // If projeto is specified, use the filtered search
+      if (input.projeto !== undefined) {
+        return searchAnimalsByProject(input.query, input.projeto);
+      }
       return searchAnimals(input.query);
     }),
 
@@ -88,5 +101,18 @@ export const animalsRouter = router({
     .input(z.object({ status: z.string() }))
     .query(async ({ input }) => {
       return getAnimalsByStatus(input.status);
+    }),
+
+  // Get animals by project
+  getByProject: publicProcedure
+    .input(
+      z.object({
+        projeto: z.string().nullable(),
+        limit: z.number().min(1).max(100).default(50),
+        offset: z.number().min(0).default(0),
+      })
+    )
+    .query(async ({ input }) => {
+      return getAnimalsByProject(input.projeto, input.limit, input.offset);
     }),
 });

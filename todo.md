@@ -49,3 +49,12 @@
 - [ ] Testar fluxos principais
 - [ ] Criar checkpoint final
 - [ ] Deploy em produção
+
+## Fase 7: Separação de Projetos (Animais Iluminados)
+- [x] Adicionar campo `projeto` à tabela de animais
+- [x] Atualizar interface Animal para incluir projeto
+- [x] Criar filtro de projeto na página de Animais
+- [x] Criar página separada para Animais Iluminados
+- [x] Atualizar procedures para filtrar por projeto
+- [x] Criar dashboard separado para Animais Iluminados
+- [x] Testar separação de dados
