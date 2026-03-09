@@ -18,21 +18,21 @@
 - [x] Criar tRPC procedures para CRUD de animais
 - [x] Integrar Supabase com tRPC procedures
 
-## Fase 3: Módulos de Adoção, Doação e Voluntariado
-- [ ] Implementar módulo de adoções (listagem, criar, editar)
-- [ ] Criar formulário de acompanhamento pós-adoção
+## Fase 3: Módulos de Adoção, Doação e Voluntário
+- [x] Implementar módulo de adoções (listagem, criar, editar)
+- [x] Criar formulário de acompanhamento pós-adoção
 - [ ] Implementar devolução de adoção
-- [ ] Criar módulo de doações (listagem, registrar)
-- [ ] Implementar filtro de doações por tipo
+- [x] Criar módulo de doações (listagem, registrar)
+- [x] Implementar filtro de doações por tipo (PIX, Banco, Items)
 - [ ] Criar módulo de voluntários (listagem, registrar)
-- [ ] Implementar rastreamento de horas de voluntariado
-- [ ] Criar tRPC procedures para adoções, doações e voluntariado
+- [ ] Implementar rastreamento de horas de voluntário
+- [x] Criar tRPC procedures para adoções e doaçõesariado
 
 ## Fase 4: Relatórios e Analytics
-- [ ] Criar dashboard com estatísticas principais
-- [ ] Implementar gráfico de adoções por mês
-- [ ] Implementar gráfico de doações por tipo
-- [ ] Implementar gráfico de horas de voluntariado
+- [x] Criar dashboard com estatísticas principais
+- [x] Implementar gráfico de adoções por mês
+- [x] Implementar gráfico de doações por tipo
+- [x] Implementar gráfico de horas de voluntário
 - [ ] Criar relatório de animais por status
 - [ ] Criar relatório de doadores recorrentes
 
