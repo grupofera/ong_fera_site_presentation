@@ -84,7 +84,13 @@ export function DonationForm({ onSuccess, isLoading }: DonationFormProps) {
   });
 
   const onSubmit: SubmitHandler<DonationFormValues> = (values) => {
-    createMutation.mutate(values);
+    createMutation.mutate({
+      tipo_doacao: values.tipo_doacao.toLowerCase() as "pix" | "banco" | "items",
+      valor: values.valor,
+      descricao_items: values.descricao_item,
+      data_doacao: values.data_doacao || new Date().toISOString().split('T')[0],
+      observacoes: values.observacoes,
+    });
   };
 
   const isSubmitting = createMutation.isPending;
