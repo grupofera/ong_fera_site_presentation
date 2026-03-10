@@ -58,3 +58,12 @@
 - [x] Atualizar procedures para filtrar por projeto
 - [x] Criar dashboard separado para Animais Iluminados
 - [x] Testar separação de dados
+
+## Fase 8: Sistema de Login e Autenticação
+- [x] Criar página de login dedicada
+- [x] Implementar componente ProtectedRoute
+- [x] Atualizar Header com botão de login/logout
+- [x] Proteger rotas do dashboard (dashboard, animais, adoções, doações, voluntários)
+- [x] Implementar redirecionamento automático para login
+- [x] Criar testes de autenticação
+- [x] Validar fluxo completo de login/logout

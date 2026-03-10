@@ -13,18 +13,44 @@ import Dashboard from "./pages/Dashboard";
 import Adocoes from "./pages/Adocoes";
 import Doacoes from "./pages/Doacoes";
 import Voluntarios from "./pages/Voluntarios";
+import Login from "./pages/Login";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
-      <Route path={"/dashboard"} component={Dashboard} />
-      <Route path={"/animais"} component={Animais} />
-      <Route path={"/animais-iluminados"} component={AnimaisIluminados} />
-      <Route path={"/adocoes"} component={Adocoes} />
-      <Route path={"/doacoes"} component={Doacoes} />
-      <Route path={"/voluntarios"} component={Voluntarios} />
+      <Route path={"/login"} component={Login} />
+      <Route path={"/dashboard"}>
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/animais"}>
+        <ProtectedRoute>
+          <Animais />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/animais-iluminados"}>
+        <ProtectedRoute>
+          <AnimaisIluminados />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/adocoes"}>
+        <ProtectedRoute>
+          <Adocoes />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/doacoes"}>
+        <ProtectedRoute>
+          <Doacoes />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/voluntarios"}>
+        <ProtectedRoute>
+          <Voluntarios />
+        </ProtectedRoute>
+      </Route>
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
