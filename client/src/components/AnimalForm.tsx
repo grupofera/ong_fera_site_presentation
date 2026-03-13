@@ -217,7 +217,7 @@ export function AnimalForm({ initialData, onSuccess, isLoading, defaultProjeto }
               <FormItem>
                 <FormLabel>Espécie *</FormLabel>
                 <Select
-                  onValueChange={field.onChange}
+                  onValueChange={(value) => field.onChange(value.toLowerCase())}
                   defaultValue={field.value}
                   disabled={isSubmitting}
                 >
@@ -227,15 +227,14 @@ export function AnimalForm({ initialData, onSuccess, isLoading, defaultProjeto }
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="Cão">Cão</SelectItem>
-                    <SelectItem value="Gato">Gato</SelectItem>
-                    <SelectItem value="Coelho">Coelho</SelectItem>
-                    <SelectItem value="Pássaro">Pássaro</SelectItem>
-                    <SelectItem value="Roedor">Roedor</SelectItem>
-                    <SelectItem value="Réptil">Réptil</SelectItem>
-                    <SelectItem value="Outro">Outro</SelectItem>
+                    <SelectItem value="cão">Cão</SelectItem>
+                    <SelectItem value="gato">Gato</SelectItem>
+                    <SelectItem value="outro">Outro</SelectItem>
                   </SelectContent>
                 </Select>
+                <FormDescription>
+                  O banco de dados aceita apenas: Cão, Gato ou Outro
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
