@@ -89,6 +89,7 @@ export async function createAnimal(input: CreateAnimalInput) {
         descricao: input.descricao || null,
         foto_url: input.foto_url || null,
         projeto: input.projeto || null,
+        data_entrada: new Date().toISOString(),
       },
     ])
     .select()
