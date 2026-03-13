@@ -275,11 +275,13 @@ export function AnimalForm({ initialData, onSuccess, isLoading, defaultProjeto }
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="Macho">Macho</SelectItem>
-                    <SelectItem value="Fêmea">Fêmea</SelectItem>
-                    <SelectItem value="Desconhecido">Desconhecido</SelectItem>
+                    <SelectItem value="M">Macho</SelectItem>
+                    <SelectItem value="F">Fêmea</SelectItem>
                   </SelectContent>
                 </Select>
+                <FormDescription>
+                  O banco de dados aceita apenas: Macho (M) ou Fêmea (F)
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
