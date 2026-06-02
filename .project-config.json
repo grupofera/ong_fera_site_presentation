@@ -1,0 +1,43 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [
+    "db",
+    "server",
+    "user"
+  ],
+  "dev_command": "pnpm run dev",
+  "env_vars": {
+    "DATABASE_URL": "mysql://23nJBbd1Dn7zRKH.root:XLM0bAJb9e2h48x2RwkM@gateway04.us-east-1.prod.aws.tidbcloud.com:4000/oZ4kpqujbtBAQ2ErnrqnbZ?ssl={\"rejectUnauthorized\":true}"
+  },
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663416812512/oZ4kpqujbtBAQ2ErnrqnbZ",
+    "access_key_id": "ASIAZV3A2ECZOYG5AP4R",
+    "secret_access_key": "qOudQr8puaaCHdrGRecnhMdFFr4scLXcAGdgLSZR",
+    "session_token": "IQoJb3JpZ2luX2VjEGIaCXVzLWVhc3QtMSJHMEUCIGIg3nLguk1hXehymQlyObYBJHZhI12vuT7HdMUnvrY3AiEAy7CedpQsxYwQ0+ZyOkU/ZGQv++aLPR/V/3u0iM08SxQq9gMIKxAEGgw2NjUzODYwOTg4NjYiDLyPqSYZlKKtcgPG6SrTA0asVyM+dK/qERQKo3J6B9Ci0jlpgpRuAD/p0gfgskypjyUijdsgssR4H80fJbP/kMaw1iai6DQmouy7eEYJnOTlb/Xh/8oLm9yH50QYYh7yM4N0uyWEf9pzzwOH26M1Tl9GFp8+Py+rJOkQN+75dsyIScnfrwC00LLWJRtpb5s+jNWsfmdjoXE2HT9J0P+9OTgbUKCFicf3G/HyoEZ7r/qdmBxOuo0PqvJ07ETVohcsADRb1amMXiAVnyP/DZ4f/8ljP8SH4aMgYBkPavpHwtNUkq1hmPca/T6+X1uCtKKRGhAeXfRiUCJnMlYOylChUU2UbHD+qddnMVKORudrt6b172Uo5W6VBrvBQarSzOjU4Lyo9aKNTqYU/zBxUao+sKEO4OHcbtH0soOYXwFSAV27va/OBeb89ICOoIIeTaP7UNVl4YUbbGaVwxcbcaxnQoO5KpR7Fm2NeeMFFtCWcU/y4hvoeCpNvamLbAOB1TPFD/BaH4dRHTATvpxatKYXoLG0ODTmgw1kHiEUFVfmp2gwbgmLELG3KvADxgrCtT8gKdrixkT6F/NUHNIl71OzUiZxUSwChaWf67iipQvSuwF7HDIG2KPoz6SqTRAGCAuOZmNiMPGr/NAGOp0BF+mvITK4DlxStiM4pILLEp7lgsSo636GVtH6dylvJ3QgYiMXqGzdsnAXKg7DjOE+Fmksl6fr4IrXUK8iWIjtdYL7CYnk7ApnyWM42TpTvdMZp4VX1hrGVGwUI38PXFSoOqlg5pCbwXhWNIQey3BvpH/IinxxDe7HUc48csjzRuZVsrVQ0IEKozMplhOUbAkstNi6ZHSRZAJJTMkwGw==",
+    "expiration": "2026-06-03T05:42:09.000Z"
+  },
+  "name": "ong_fera_site_presentation",
+  "path": "/home/ubuntu/ong_fera_site_presentation",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "CpeY6ctj3fB473DYuWG7fu",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "8jz9zNsdmdFBjdnbJEe3h8",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Grupo FERA",
+    "OWNER_OPEN_ID": "LeoBA9Fre428MHKS9GJt5j",
+    "SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVtanhwd2dndGp3eXdveWh3anljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNjg0MjcsImV4cCI6MjA4ODY0NDQyN30.wX811x7nfHqszYqMdy2-Dx8JPcnLQhupwxjH6KjrE8w",
+    "SUPABASE_URL": "https://emjxpwggtjwywoyhwjyc.supabase.co",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "6031da14-8bb2-4522-8d57-4a0f37738415",
+    "VITE_APP_ID": "oZ4kpqujbtBAQ2ErnrqnbZ",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/310519663416812512/fwkwqAfetdFSYxkr.png",
+    "VITE_APP_TITLE": "\u0026001_ONG FERA Site Presentation\u0026001_",
+    "VITE_FRONTEND_FORGE_API_KEY": "QfBwQVBXHAopYfxoDHHGXD",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-db-user",
+  "test_command": "pnpm test"
+}
